@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap');
 .App {
   text-align: center;
 }
@@ -32,10 +33,48 @@
   font-weight: 400;
   font-style: normal;
   display: flex;
-  justify-content: center;
   margin: 2px;
 }
+.ubuntu-sans-title{
+  position: relative;
+  top: 100px;
+  margin-left: 700px;
+  color:white;
+ font-family: "Ubuntu Sans", sans-serif;
+ font-optical-sizing: auto;
+ font-weight: 400;
+ font-style: normal;
+ font-variation-settings:
+   "wdth" 100;
 
+ 
+}
+
+.fontico{
+  margin-left:100px;
+  position: absolute;
+  top: 120px; 
+ 
+}
+.custom-navbar {
+  background-color: rgb(27, 87, 136);
+}
+
+.custom-navbar .navbar-brand,
+.custom-navbar .navbar-nav .nav-link{
+  color: white !important; 
+}
+.custom-navbar .btn-outline-success {
+  color: white !important;
+  border-color: white !important;
+}
+.section{
+  height:300px;
+  width:100%;
+  background-color: rgb(27, 87, 136);
+
+
+}
 
 @keyframes App-logo-spin {
   from {

@@ -3,9 +3,9 @@ import React from 'react'
 function Navbar() {
   return (
     <>
-    <nav className="navbar navbar-expand-lg bg-body-tertiary bg-dark border-bottom border-body" data-bs-theme="dark">
+  <nav className="navbar navbar-expand-lg custom-navbar">
   <div className="container-fluid">
-    <a className="navbar-brand" href="/">Navbar</a>
+    <a className="navbar-brand" href="/">MetersIndia</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -17,34 +17,26 @@ function Navbar() {
         <li className="nav-item">
           <a className="nav-link active" href="/">About</a>
         </li>
-        <li className="nav-item">
-          <a className="nav-link active" href="/">Contact Us</a>
-        </li>
         <li className="nav-item dropdown">
-          <a className="nav-link active dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a className="nav-link dropdown-toggle active" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Types
           </a>
           <ul className="dropdown-menu">
-            <li><a className="dropdown-item" href="/">Smart meters</a></li>
-            <li><a className="dropdown-item" href="/">Energy meters</a></li>
-            <li><a className="dropdown-item" href="/">Water meters</a></li>
-            <li><hr className="dropdown-divider"/></li>
-            <li><a className="dropdown-item" href="/">and many more</a></li>
+            <li><a className="dropdown-item" href="/">Smart Meters</a></li>
+            <li><a className="dropdown-item" href="/">Energy Meters</a></li>
+            {/* <li><hr className="dropdown-divider"/></li> */}
+            <li><a className="dropdown-item" href="/">Water Meters</a></li>
           </ul>
         </li>
-        {/* <li className="nav-item">
-          <a className="nav-link disabled" aria-disabled="true">Disabled</a>
-        </li> */}
       </ul>
       <form className="d-flex" role="search">
-  <input className="form-control me-2" type="search" placeholder="Search" style={{ border: '2px solid white' }} aria-label="Search" />
-  <button className="btn btn-outline-success" type="submit">Search</button>
-  <button type="button" class=" mx-2 btn btn-dark"  style={{ border: '2px solid white' }}>Login</button>
-</form>
-
+        <input className="form-control me-2 clr" type="search" placeholder="Search" aria-label="Search"/>
+        <button className="btn btn-outline-success" type="submit">Search</button>
+      </form>
     </div>
   </div>
 </nav>
+
     </>
   )
 }
