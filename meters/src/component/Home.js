@@ -2,7 +2,7 @@ import React from 'react';
 
 
 
-function Heading() {
+function Home() {
   return (
     <>
       {/* <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel">
@@ -47,4 +47,4 @@ function Heading() {
   )
 }
 
-export default Heading;
+export default Home;

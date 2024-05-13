@@ -33,27 +33,75 @@
   font-weight: 400;
   font-style: normal;
   display: flex;
-  margin: 2px;
+
 }
-.ubuntu-sans-title{
+.ubuntu-sans-title {
   position: relative;
-  top: 100px;
-  margin-left: 700px;
-  color:white;
- font-family: "Ubuntu Sans", sans-serif;
- font-optical-sizing: auto;
- font-weight: 400;
- font-style: normal;
- font-variation-settings:
-   "wdth" 100;
+  color: white;
+  font-family: "Ubuntu Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  /* Add other styles as needed */
 
+  /* Initial positioning */
+  margin-left: 700px;
+  top: 100px;
+}
+.contactimage{
  
+  position:absolute;
+  top:74px;
+  right:30px;
+}
+.contactform{
+  background: url('https://img.freepik.com/free-photo/top-view-blue-monday-concept-composition-with-telephone_23-2149139103.jpg');
+  border-radius: 10px;
+  background-repeat: no-repeat;
+ background-size: cover;
+ height:393px;
+ margin: 50px 50px;
+
+ padding:20px 20px;
+  
 }
 
+@media screen and (max-width: 961px) {
+  
+  .ubuntu-sans-title {
+    margin-left: 20px;
+    top: 20px;
+    font-size: 1.5rem;}
+    .fontico{
+      margin-top: 150px;
+    }
+}
+
+.bodyback{
+  background: url('https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L3BmLXMxMTMtYWstNTEyMy1zcy0wMi5qcGc.jpg');
+  background-size: cover;
+  background-position: center top;
+}
+.container{
+  
+
+
+  
+  display:flex;
+  flex-direction: column;
+  align-items:flex-start;
+  justify-content: center;
+  color: rgb(27, 87, 136);
+
+} 
 .fontico{
   margin-left:100px;
   position: absolute;
-  top: 120px; 
+  top: 75px; 
+
+ 
+
  
 }
 .custom-navbar {
