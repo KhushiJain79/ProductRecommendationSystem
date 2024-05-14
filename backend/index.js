@@ -2,28 +2,28 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const Routes = require("./routes/routes");
+const cors = require('cors');
 
+app.use(cors({
+    origin: 'http://localhost:3000', // Allow requests from this origin
+}));
 
-//to use bodyparser in our app we write this commmand.
-//body parser is used to get data from our frontend to our backend.
-//nodemon is used to run our backend automatically when we update our file or make some changes.(npm run dev) dev is dependency
-//Routes is used to create routes in another folder and use those routes here in this folder.
+// To parse incoming requests with JSON payloads
+app.use(express.json());
+
+// Using routes
 app.use(Routes);
 
-//now I will be connecting my database and backend
+// Connect to MongoDB
 mongoose.connect("mongodb://127.0.0.1:27017/AppDB")
-.then(()=>{
-    app.listen(5000, (req,res)=>{
-        try{
-            console.log("server is live at port : 5000");
-        }catch(err){
-            console.log("some error occured on listening of port", err);
-        }
+    .then(() => {
+        console.log("MongoDB is Connected...");
+
+        // Start the server
+        app.listen(5000, () => {
+            console.log("Server is live at port : 5000");
+        });
     })
-}).catch((err)=>{
-    console.log("error occured while connectiong to data base : \n",err.message);
-})
-
-
-
-
+    .catch((err) => {
+        console.error("Error connecting to database:", err.message);
+    });

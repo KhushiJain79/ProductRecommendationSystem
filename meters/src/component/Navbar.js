@@ -1,7 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import LoginForm from './login&signup/login';
+import Signup from './login&signup/signup';
+import { AuthProvider } from './authContext';
+
 
 function Navbar() {
+ 
+  
   return (
     <nav className="navbar navbar-expand-lg custom-navbar">
       <div className="container-fluid">
@@ -35,6 +41,11 @@ function Navbar() {
             <input className="form-control me-2 clr" type="search" placeholder="Search" aria-label="Search"/>
             <button className="btn btn-outline-success" type="submit">Search</button>
           </form>
+        
+          <AuthProvider>
+            <LoginForm />
+            <Signup />
+        </AuthProvider>
         </div>
       </div>
     </nav>

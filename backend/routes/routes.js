@@ -5,7 +5,7 @@ const user_model = require("../database_models/user_model");
 const routes = express.Router();
 app.use(express.json());
 routes.use(bodyParser.json());//this ensures routes to get data from frotend of our website. req.body becomes javascript object.
-//here we are going to import mongodb mondel of user
+//here we are going to import mongodb model of user
 
 
 routes.get("/", (req,res)=>{
@@ -26,7 +26,7 @@ routes.post("/sign-in", async (req,res)=>{
     }
 });
 
-routes.get("/sign-up", async(req,res)=>{
+routes.post("/login", async(req,res)=>{
     const {name,email,password} = req.body;
 
     //now I will search in database for this email and password;
@@ -36,11 +36,11 @@ routes.get("/sign-up", async(req,res)=>{
             email : email,
             password : password,
         });
-        
+        console.log(data);
         if(data==null){
             //no such user exists in our database;
             console.log("user not found");
-            res.sendStatus(200);
+            res.sendStatus(404);
 
         }else{
             //we found the user in database;
