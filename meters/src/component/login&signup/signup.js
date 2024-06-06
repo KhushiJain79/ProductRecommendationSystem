@@ -77,8 +77,8 @@ function Signup() {
                 </div>
             </div>
         </div> 
-        {!isLoggedIn && <button className="btn btn-danger mx-2" data-bs-toggle="modal" data-bs-target="#signupModal">Signup</button>}
-      {signup && isLoggedIn && <button className="btn btn-danger mx-2" data-bs-toggle="modal" data-bs-target="#signupModal"> {name.charAt(0).toUpperCase()}</button>}
+        {!isLoggedIn && <button className="btn btn-danger mx-1 colorbtn" data-bs-toggle="modal" data-bs-target="#signupModal">Signup</button>}
+      {signup && isLoggedIn && <button className="btn btn-danger mx-1 colorbtn" data-bs-toggle="modal" data-bs-target="#signupModal"> {name.charAt(0).toUpperCase()}</button>}
     </>
 );
 }

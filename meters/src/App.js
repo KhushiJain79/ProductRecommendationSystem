@@ -8,6 +8,7 @@ import {
   Route
 } from "react-router-dom";
 import Contact from './component/Contact';
+import About from './component/About';
 
 function App() {
   return (
@@ -17,8 +18,9 @@ function App() {
 
     <Navbar/>
     <Routes>
-           
     <Route  exact path="/" element={<Home/>}/>
+    <Route  exact path="/home" element={<Home/>}/>
+    <Route  exact path="/about" element={<About/>}/>
     <Route  exact path="/contact" element={<Contact/>}/>
     </Routes>
 

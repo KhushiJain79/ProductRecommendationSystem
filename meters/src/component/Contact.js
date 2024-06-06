@@ -1,25 +1,75 @@
-import React from 'react'
+import React, { useState } from 'react';
 
 function Contact() {
+  const [email, setEmail] = useState("");
+  const [feedback, setFeedback] = useState("");
+
+  const handleContact = async (e) => {
+    e.preventDefault();
+    // Send contact data to backend
+    try {
+      const response = await fetch('http://localhost:5000/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, feedback })
+      });
+
+      if (response.ok) {
+        // Submission successful
+        console.log('Submission successful');
+        // Clear the form values
+        setEmail("");
+        setFeedback("");
+      } else {
+        // Submission failed
+        console.error('Submission failed');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
   return (
-   <>
-   <div className="contactform">
-    <img src="https://cdn-icons-png.flaticon.com/128/8367/8367861.png" height={60} width={60} className='contactimage' alt="" />
-   <form>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-    </div>
-  
-    <div class="mb-3">
-  <label for="exampleFormControlTextarea1" class="form-label">FeedBack</label>
-  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-</div>
-  <button type="submit" class="btn btn-primary" style={{backgroundColor:'rgb(27, 87, 136)'}}>Submit</button>
-</form>
-   </div>
-   </>
-  )
+    <>
+      <div className="contactform">
+        <img
+          src="https://cdn-icons-png.flaticon.com/128/8367/8367861.png"
+          height={60}
+          width={60}
+          className='contactimage'
+          alt=""
+        />
+        <form onSubmit={handleContact}>
+          <div className="mb-3">
+            <label htmlFor="exampleInputEmail" className="form-label">Email address</label>
+            <input
+              type="email"
+              className="form-control"
+              id="exampleInputEmail"
+              aria-describedby="emailHelp"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="exampleFormControlTextarea" className="form-label">Feedback</label>
+            <textarea
+              className="form-control"
+              id="exampleFormControlTextarea"
+              rows="3"
+              value={feedback}
+              onChange={(e) => setFeedback(e.target.value)}
+              required
+            ></textarea>
+          </div>
+          <button type="submit" className="btn btn-primary colorbtn">Submit</button>
+        </form>
+      </div>
+    </>
+  );
 }
 
-export default Contact
+export default Contact;

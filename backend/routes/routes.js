@@ -36,7 +36,6 @@ routes.post("/login", async(req,res)=>{
             email : email,
             password : password,
         });
-        console.log(data);
         if(data==null){
             //no such user exists in our database;
             console.log("user not found");

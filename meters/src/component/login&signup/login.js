@@ -41,7 +41,10 @@ function LoginForm() {
             } else {
                 // login failed
                 console.error('login failed');
-                document.getElementById('error').innerHTML="please enter correct credentials";
+                document.getElementById('error').innerHTML="Please enter correct credentials";
+                setName("");
+                setEmail("");
+                setPassword("");
          
               
             }
@@ -67,8 +70,8 @@ function LoginForm() {
                         <div className="modal-body">
                             {isLoggedIn ? (
                                 <div>
-                                    <p>Welcome, {name.toUpperCase()}</p>
-                                    <button className="btn btn-danger mx-2" onClick={reset} data-bs-toggle="modal" data-bs-target="#loginModal">Logout</button>
+                                    <p >Welcome, {name.toUpperCase()}</p>
+                                    <button className="btn btn-danger mx-2 colorbtn" onClick={reset} data-bs-toggle="modal" data-bs-target="#loginModal">Logout</button>
 
                                 </div>
                             ) : (
@@ -86,15 +89,15 @@ function LoginForm() {
                                         <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} className="form-control" id="exampleInputPassword1"/>
                                     </div>
                                     <button type="submit" className="btn btn-primary">Submit</button>
-                                    <div id="error"></div>
+                                    <div id="error" style={{color:'red'}}></div>
                                 </form>
                             )}
                         </div>
                     </div>
                 </div>
             </div> 
-            {!isLoggedIn && <button className="btn btn-danger mx-2" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>}
-          {login && isLoggedIn && <button className="btn btn-danger mx-2" data-bs-toggle="modal" data-bs-target="#loginModal"> {name.charAt(0).toUpperCase()}</button>}
+            {!isLoggedIn && <button className="btn btn-danger mx-1 colorbtn" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>}
+          {login && isLoggedIn && <button className="btn btn-danger mx-1 colorbtn" data-bs-toggle="modal" data-bs-target="#loginModal"> {name.charAt(0).toUpperCase()}</button>}
         </>
     );
 }
