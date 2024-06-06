@@ -83,7 +83,7 @@
   float: right;
   height:475px;
   width:713px;
-  margin:40px;
+  margin:41px;
   border-radius: 1000px;
 }
 .paraabout{
@@ -120,6 +120,9 @@ margin: 10px;
 flex: 1;
 border-radius:20px;
 
+}
+.box:hover{
+border:2px solid rgb(43, 144, 161);
 }
 
 .subhead1{

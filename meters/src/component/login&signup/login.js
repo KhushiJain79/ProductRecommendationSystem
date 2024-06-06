@@ -19,13 +19,9 @@ function LoginForm() {
         e.preventDefault();
         // Send login data to backend
         try {
-            const url = new URL('http://localhost:5000/login');
-            url.searchParams.append('name', name);
-            url.searchParams.append('email', email);
-            url.searchParams.append('password', password);
-            console.log(url);
+           
     
-            const response = await fetch(url, {
+            const response = await fetch('http://localhost:5000/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
