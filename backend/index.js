@@ -1,6 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 const app = express();
+const cookieParser = require("cookie-parser");
 const Routes = require("./routes/routes");
 const cors = require('cors');
 
@@ -13,6 +15,12 @@ app.use(express.json());
 
 // Using routes
 app.use(Routes);
+
+//using env file
+dotenv.config();
+
+//for cookies
+app.use(cookieParser());;
 
 // Connect to MongoDB
 mongoose.connect("mongodb://127.0.0.1:27017/AppDB")
