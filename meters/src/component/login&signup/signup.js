@@ -70,7 +70,7 @@ function Signup() {
                                     <label htmlFor="exampleInputPassword2" className="form-label">Password</label>
                                     <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} className="form-control" id="exampleInputPassword2"/>
                                 </div>
-                                <button type="submit" className="btn btn-primary">Submit</button>
+                                <button type="submit" className="btn btn-primary colorbtn">Submit</button>
                             </form>
                         )}
                     </div>

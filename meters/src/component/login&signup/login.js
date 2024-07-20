@@ -84,7 +84,7 @@ function LoginForm() {
                                         <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
                                         <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} className="form-control" id="exampleInputPassword1"/>
                                     </div>
-                                    <button type="submit" className="btn btn-primary">Submit</button>
+                                    <button type="submit" className="btn btn-primary colorbtn">Submit</button>
                                     <div id="error" style={{color:'red'}}></div>
                                 </form>
                             )}
