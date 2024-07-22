@@ -9,10 +9,42 @@ function LoginForm() {
     const [password, setPassword] = useState('');
     const [login, setIsLogin] = useState(false);
     const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
+ 
+
+    const loginVerification = async ()=>{
+        const token = localStorage.getItem("token");
+        if(token){
+            const res = await fetch("http://localhost:5000/user/verify", {
+                method: 'POST',
+                headers: {
+                    Authorization : `Bearer ${token}`,
+                },
+                body: JSON.stringify({ token })
+            })
+            const result = await res.json();
+            if(result.success){
+                console.log("user is logged in");
+                setName(result.message[0].name);
+                setEmail(result.message[0].email);
+                localStorage.setItem("isLoggedIn", true);
+                const userLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+                setIsLoggedIn(userLoggedIn);
+                setIsLogin(true);
+            }else{
+                console.log(result.message);
+            }
+        }else{
+            console.log("token missing");
+        }
+        
+    }
+
+
     useEffect(() => {
-        const userLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-        setIsLoggedIn(userLoggedIn);
-    }, [setIsLoggedIn]);
+        // const userLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+        // setIsLoggedIn(userLoggedIn);
+        loginVerification();
+    },);
 
 
     const handleSubmit = async (e) => {
@@ -28,12 +60,13 @@ function LoginForm() {
                 },
                 body: JSON.stringify({ name, email, password })
             });
-      console.log(response);
-            if (response.ok) {
+            const result = await response.json();
+            if (result.success) {
                 // login successful
                 console.log('login successful');
                 setIsLoggedIn(true);
-                setIsLogin(true);
+                setIsLogin(true);   
+                localStorage.setItem("token", result.message);
             } else {
                 // login failed
                 console.error('login failed');
@@ -49,8 +82,12 @@ function LoginForm() {
         }
     };
     const reset=()=>{
+        console.log("reached");
+        localStorage.removeItem("token");
+
         setIsLoggedIn(false);
         setIsLogin(false);
+        localStorage.setItem("isLoggedIn", "false");
     }
 
     return (

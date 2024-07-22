@@ -35,9 +35,13 @@ function Signup() {
             console.error('Error:', error);
         }
     };
-    const reset=()=>{
+    const resp= ()=>{
+        console.log("reached");
+        localStorage.removeItem("token");
+
         setIsLoggedIn(false);
         setIsSignup(false);
+        localStorage.setItem("isLoggedIn", "false");
     }
     return (
         <>
@@ -53,7 +57,7 @@ function Signup() {
                         {isLoggedIn ? (
                             <div>
                                 <p>Welcome, {name.toUpperCase()}</p>
-                                <button className="btn btn-danger mx-2" onClick={reset} data-bs-toggle="modal" data-bs-target="#signupModal">Logout</button>
+                                <button className="btn btn-danger mx-2"  data-bs-toggle="modal" data-bs-target="#signupModal" ><p onClick={resp}>Logout</p></button>
 
                             </div>
                         ) : (
